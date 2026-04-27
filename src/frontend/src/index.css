@@ -1,0 +1,438 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "General Sans";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.75rem;
+
+    --background: 0.98 0 0;
+    --foreground: 0.2 0 0;
+    --card: 1.0 0 0;
+    --card-foreground: 0.15 0 0;
+    --popover: 1.0 0 0;
+    --popover-foreground: 0.15 0 0;
+
+    --primary: 0.55 0.24 254;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.92 0 0;
+    --secondary-foreground: 0.2 0 0;
+    --muted: 0.94 0 0;
+    --muted-foreground: 0.45 0 0;
+
+    --accent: 0.58 0.28 32;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.92 0 0;
+    --input: 0.96 0 0;
+    --ring: 0.55 0.24 254;
+
+    --chart-1: 0.55 0.24 254;
+    --chart-2: 0.65 0.22 142;
+    --chart-3: 0.62 0.28 71;
+    --chart-4: 0.65 0.2 29;
+    --chart-5: 0.58 0.25 20;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.2 0 0;
+    --sidebar-primary: 0.55 0.24 254;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.92 0 0;
+    --sidebar-accent-foreground: 0.2 0 0;
+    --sidebar-border: 0.92 0 0;
+    --sidebar-ring: 0.55 0.24 254;
+
+    --stage-1: 0.52 0.28 260;
+    --stage-2: 0.62 0.26 140;
+    --stage-3: 0.6 0.32 45;
+    --stage-4: 0.55 0.28 280;
+    --stage-5: 0.5 0.3 20;
+  }
+
+  .dark {
+    --background: 0.12 0 0;
+    --foreground: 0.95 0 0;
+    --card: 0.15 0 0;
+    --card-foreground: 0.95 0 0;
+    --popover: 0.2 0 0;
+    --popover-foreground: 0.95 0 0;
+
+    --primary: 0.7 0.2 260;
+    --primary-foreground: 0.12 0 0;
+
+    --secondary: 0.2 0 0;
+    --secondary-foreground: 0.9 0 0;
+    --muted: 0.2 0 0;
+    --muted-foreground: 0.6 0 0;
+
+    --accent: 0.72 0.22 35;
+    --accent-foreground: 0.12 0 0;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.12 0 0;
+
+    --border: 0.25 0 0;
+    --input: 0.2 0 0;
+    --ring: 0.7 0.2 260;
+
+    --chart-1: 0.7 0.2 260;
+    --chart-2: 0.65 0.22 142;
+    --chart-3: 0.75 0.25 72;
+    --chart-4: 0.65 0.22 35;
+    --chart-5: 0.62 0.24 22;
+
+    --sidebar: 0.15 0 0;
+    --sidebar-foreground: 0.95 0 0;
+    --sidebar-primary: 0.7 0.2 260;
+    --sidebar-primary-foreground: 0.12 0 0;
+    --sidebar-accent: 0.2 0 0;
+    --sidebar-accent-foreground: 0.9 0 0;
+    --sidebar-border: 0.25 0 0;
+    --sidebar-ring: 0.7 0.2 260;
+
+    --stage-1: 0.65 0.26 260;
+    --stage-2: 0.7 0.28 140;
+    --stage-3: 0.7 0.35 45;
+    --stage-4: 0.68 0.3 280;
+    --stage-5: 0.62 0.32 20;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-stage {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .fade-out {
+    animation: fadeOut 0.3s ease-in;
+  }
+
+  .slide-up {
+    animation: slideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .zoom-in {
+    animation: zoomIn 1.2s ease-out;
+  }
+
+  .stage-1-bg {
+    @apply bg-[oklch(var(--stage-1))];
+  }
+
+  .stage-2-bg {
+    @apply bg-[oklch(var(--stage-2))];
+  }
+
+  .stage-3-bg {
+    @apply bg-[oklch(var(--stage-3))];
+  }
+
+  .stage-4-bg {
+    @apply bg-[oklch(var(--stage-4))];
+  }
+
+  .stage-5-bg {
+    @apply bg-[oklch(var(--stage-5))];
+  }
+
+  /* Map node styling — stage glow effects */
+  .map-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .map-node::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--stage-glow) 0%, transparent 70%);
+    opacity: 0.3;
+    z-index: -1;
+  }
+
+  .map-node:hover::before {
+    opacity: 0.6;
+  }
+
+  /* Individual stage node glows */
+  .map-node-stage-1 {
+    --stage-glow: oklch(var(--stage-1));
+  }
+
+  .map-node-stage-2 {
+    --stage-glow: oklch(var(--stage-2));
+  }
+
+  .map-node-stage-3 {
+    --stage-glow: oklch(var(--stage-3));
+  }
+
+  .map-node-stage-4 {
+    --stage-glow: oklch(var(--stage-4));
+  }
+
+  .map-node-stage-5 {
+    --stage-glow: oklch(var(--stage-5));
+  }
+
+  /* Stage ring pulse animation */
+  .stage-pulse {
+    animation: stagePulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Glowing text accent for stage labels */
+  .stage-text-glow {
+    text-shadow: 0 0 8px rgba(var(--stage-rgb), 0.4);
+  }
+
+  @keyframes stagePulse {
+    0% {
+      box-shadow: 0 0 0 0 currentColor;
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
+  @keyframes stageGlow {
+    0%,
+    100% {
+      filter: drop-shadow(0 0 4px rgba(var(--stage-rgb), 0.3));
+    }
+    50% {
+      filter: drop-shadow(0 0 12px rgba(var(--stage-rgb), 0.6));
+    }
+  }
+
+  .stage-glow-pulse {
+    animation: stageGlow 2.5s ease-in-out infinite;
+  }
+
+  @keyframes floatDroplet {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .float-droplet {
+    animation: floatDroplet 3s ease-in-out infinite;
+  }
+
+  @keyframes pathwayFlow {
+    0% {
+      stroke-dashoffset: 24;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .pathway-flow {
+    animation: pathwayFlow 2s linear infinite;
+    stroke-dasharray: 12, 12;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .info-card-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Journey badge — pulsing CTA on the kidney SVG */
+  .journey-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1.1rem 0.45rem 0.75rem;
+    background: linear-gradient(135deg, #e05010 0%, #c03800 100%);
+    color: #fff9f5;
+    font-family: var(--font-display), sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 0 0 0 rgba(224, 80, 16, 0.7);
+    animation: badgePulse 2s infinite, fadeIn 0.5s ease-out;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 20;
+  }
+
+  .journey-badge:hover {
+    transform: translate(-50%, -50%) scale(1.08) !important;
+    box-shadow: 0 0 0 8px rgba(224, 80, 16, 0.15);
+  }
+
+  .journey-badge:focus-visible {
+    outline: 3px solid #f0d090;
+    outline-offset: 3px;
+  }
+
+  .journey-badge__dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f0d090;
+    flex-shrink: 0;
+  }
+
+  .bounce-gentle {
+    animation: bounceGentle 2.5s ease-in-out infinite;
+  }
+
+  @keyframes badgePulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(224, 80, 16, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(224, 80, 16, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(224, 80, 16, 0);
+    }
+  }
+
+  @keyframes bounceGentle {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce-gentle,
+  .bounce-gentle {
+    animation: none;
+  }
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-zoom-in,
+  .fade-in,
+  .slide-up,
+  .zoom-in {
+    animation: none;
+  }
+  .journey-badge {
+    animation: none;
+    box-shadow: 0 0 0 2px rgba(224, 80, 16, 0.5);
+  }
+  .animate-ping {
+    animation: none !important;
+  }
+}

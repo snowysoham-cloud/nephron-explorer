@@ -1,0 +1,22 @@
+{
+  "overview": "Nephron Explorer is an interactive adventure that takes you on a journey through the kidney and nephron. Click through a visual map of the nephron pathway, watch animations at each stage, and explore how the kidney filters your blood — no quizzes, just pure exploration.",
+  "features": [
+    "Interactive nephron + kidney map with clickable stage nodes",
+    "Cinematic welcome screen zooming into the kidney",
+    "Step-by-step adventure navigation through 5 nephron stages",
+    "Educational animations at each stage showing what happens",
+    "Info panels with substances processed and reabsorption details",
+    "Vibrant hand-crafted aesthetic design"
+  ],
+  "category": "education",
+  "tags": [
+    "biology",
+    "kidney",
+    "nephron",
+    "education",
+    "interactive",
+    "adventure",
+    "animation"
+  ],
+  "last_updated": "2026-04-27T15:59:44.905Z"
+}
